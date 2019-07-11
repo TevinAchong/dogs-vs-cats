@@ -67,7 +67,7 @@ history = model.fit_generator(
 )
 
 # Saving the model
-model.save('cats_and_dogs_small_1.h5')
+model.save('../models/cats_and_dogs_small_1.h5')
 
 # Displaying curves of loss and accuracy during training
 acc = history.history['acc']
