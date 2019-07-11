@@ -67,7 +67,7 @@ history = model.fit_generator(
 )
 
 # Saving the model
-model.save('cats_and_dogs_small_1.h5')
+model.save('../models/cats_and_dogs_small_1.h5')
 
 # Displaying curves of loss and accuracy during training
 acc = history.history['acc']
@@ -91,14 +91,4 @@ plt.legend()
 
 plt.show()
 
-# Setting up data augmentation configuration via ImageDataGenerator
-datagen = ImageDataGenerator(
-    rotation_range=40, # range to randomly rotate pictures
-    width_shift_range=0.2,
-    height_shift_range=0.2,
-    shear_range=0.2,
-    zoom_range=0.2,
-    horizontal_flip=True,
-    fill_mode='nearest' # strategy used for filling in newly created pixels
-)
 
