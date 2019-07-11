@@ -9,6 +9,7 @@ from keras import models
 from keras.preprocessing.image import ImageDataGenerator
 from keras import optimizers
 import matplotlib.pyplot as plt
+import time
 
 # Convnet that includes dropout
 model = models.Sequential()
@@ -69,6 +70,7 @@ validation_generator = test_datagen.flow_from_directory(
     class_mode='binary'
 )
 
+start_time = time.ctime()
 history = model.fit_generator(
     train_generator,
     steps_per_epoch=100,
@@ -76,6 +78,9 @@ history = model.fit_generator(
     validation_data=validation_generator,
     validation_steps=50,
 )
+end_time = time.ctime()
+print("Model started on {}".format(start_time))
+print("Model ended on {}".format(end_time))
 
 # Saving the model
 model.save('../models/cats_and_dogs_small_dropout.h5')
